@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.swiper-wrapper{
+  align-items: center;
+}
+@media screen and (max-width: 600px) {
+  .swiper-button-prev,.swiper-button-next{
+    display: none !important;
+    
+  }
+  .swiper{
+    padding: 0 !important;
+  }
+}
