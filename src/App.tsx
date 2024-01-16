@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Data } from './types';
 
-import './App.css';
+import './App.scss';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -80,7 +80,7 @@ function App() {
     setSort('events');
   };
   const all = () => {
-    setSort('all');
+    setSort('events');
   };
 
   return (
