@@ -197,9 +197,15 @@ body{
   width: 50px;
   overflow: hidden;
   max-width: 100%;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 .imgY:hover{
   cursor:pointer;
+  color: white;
+  background-color: #dfdede;
+  scale: 1.1;
+  transition: all 0.5s ease;
 }
 .imgY2{
   transform: rotate(180deg);
@@ -211,8 +217,13 @@ body{
 .circle-2:hover{
   color:black;
   background-color: black;
-  scale: 1.1;
+  scale: 1.5;
   transition: all 0.5s ease;
+}
+.highlander{
+  color:black;
+  scale: 1.5;
+  z-index: 1000;
 }
 
 .color{
