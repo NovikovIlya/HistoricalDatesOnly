@@ -81,6 +81,7 @@ function App() {
     setSort('events');
   };
   const all = () => {
+    //передаю events так как у all нет своего sort
     setSort('events');
   };
 
