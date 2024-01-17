@@ -17,6 +17,12 @@ body{
   font-size: 14px;
   width: 100%;
 }
+.errorMessage{
+  color: red;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 .div {
   background-color: #fff;
   display: flex;

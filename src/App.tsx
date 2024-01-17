@@ -18,7 +18,11 @@ function App() {
   const [max, setMax] = useState(0);
 
   //hooks
-  const { isPending, data = [] } = useQuery<Data[]>({
+  const {
+    error,
+    isPending,
+    data = [],
+  } = useQuery<Data[]>({
     queryKey: ['data', day, sort],
     queryFn: () => fetchDate(mouth, day, sort),
   });
@@ -82,34 +86,37 @@ function App() {
 
   return (
     <>
-      <div className="App">
-        <div className="div">
-          <div className="div-2">
-            <div className="div-3">
-              <TitleComponent sort={sort} />
-              <CircleComponent
-                sort={sort}
-                selected={selected}
-                events={events}
-                death={death}
-                birth={birth}
-                holiday={holiday}
-                all={all}
-              />
-              <MinMaxComponent min={min} max={max} isPending={isPending} />
+      {!error && (
+        <div className="App">
+          <div className="div">
+            <div className="div-2">
+              <div className="div-3">
+                <TitleComponent sort={sort} />
+                <CircleComponent
+                  sort={sort}
+                  selected={selected}
+                  events={events}
+                  death={death}
+                  birth={birth}
+                  holiday={holiday}
+                  all={all}
+                />
+                <MinMaxComponent min={min} max={max} isPending={isPending} />
+              </div>
             </div>
           </div>
+          <div className="footer">
+            <ArrowComponent
+              changeDatePlus={changeDatePlus}
+              changeDateMinus={changeDateMinus}
+              day={day}
+              mouth={mouth}
+            />
+            <SwiperComponents isPending={isPending} data={data} />
+          </div>
         </div>
-        <div className="footer">
-          <ArrowComponent
-            changeDatePlus={changeDatePlus}
-            changeDateMinus={changeDateMinus}
-            day={day}
-            mouth={mouth}
-          />
-          <SwiperComponents isPending={isPending} data={data} />
-        </div>
-      </div>
+      )}
+      {error && <div className="errorMessage">An error occurred, please try later</div>}
     </>
   );
 }
